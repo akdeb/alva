@@ -1,5 +1,5 @@
 # Alva 
-## AI assistant for people living with dementia
+AI assistant for people living with dementia
 
 ## Features
 
