@@ -1,56 +1,18 @@
-import { Button } from "@/components/ui/button";
-import { Home, Sparkle, ChevronDown, Dog, Bird, Hop, Plus, Blocks, Gamepad2, Link } from "lucide-react";
-import {
-    DropdownMenuSeparator,
-    DropdownMenu,
-    DropdownMenuItem,
-    DropdownMenuGroup,
-    DropdownMenuContent,
-    DropdownMenuTrigger,
-    DropdownMenuLabel,
-} from "@/components/ui/dropdown-menu";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
-
-const ICON_SIZE = 22;
+import Link from "next/link";
 
 interface LeftNavbarButtonsProps {
     user: IUser | null;
 }
 
-export default function LeftNavbarButtons({ user }: LeftNavbarButtonsProps) {
-    const isDoctor = user?.user_info.user_type === "doctor";
-    const pathname = usePathname();
-
-    let firstWordOfHospital = '';
-    if (isDoctor) {
-        const hospitalName = (user?.user_info.user_metadata as IDoctorMetadata).hospital_name; 
-        firstWordOfHospital = hospitalName ? hospitalName.split(' ')[0] : '';
-    }
-
-    const isRoot = pathname === "/";
-    const isHome = pathname.includes("/home");
-
-    const shouldShowHospital = isDoctor && firstWordOfHospital.length && isHome;
-
+export default function LeftNavbarButtons({ user: _user }: LeftNavbarButtonsProps) {
     return (
-        <div className="flex flex-row gap-4 sm:gap-10 items-center">
-        <Button
-            variant="outline"
-            className="flex flex-row gap-2 items-center px-4 py-2 rounded-lg"
-            asChild
-            aria-label="Go to Home page"
-            title="Click to go to Home page"
-        >
-            <a href="https://www.elatoai.com">
-                <Link size={18} className="mr-1" />
-                <span className="text-md font-normal mr-1">Main Website</span>
-                <p className="flex items-center font-luckiestGuy tracking-widest text-xl mt-1">
-                    <span>Elato</span>
-                </p>
-                <Image src="/logos/elato.png" alt="Elato Logo" width={24} height={24} />
-            </a>
-        </Button>
-    </div>
+        <Link href="/" aria-label="Alva home" className="group inline-flex items-center gap-3">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#ff6f61] via-[#ff8a45] to-[#ffb347] text-lg font-bold text-white shadow-sm">
+                A
+            </span>
+            <span className="font-[var(--font-lora)] text-2xl font-semibold tracking-[0.08em] bg-gradient-to-r from-[#ff6f61] to-[#2cb68a] bg-clip-text text-transparent transition-all group-hover:brightness-90">
+                ALVA
+            </span>
+        </Link>
     );
 }

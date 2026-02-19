@@ -70,6 +70,30 @@
     }
 }
 
+@layer components {
+    .btn-alva-primary {
+        background: linear-gradient(135deg, #ff6f61 0%, #ff8a45 50%, #ffb347 100%);
+        color: #fff;
+        border: 1px solid transparent;
+        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.25);
+    }
+
+    .btn-alva-primary:hover {
+        filter: brightness(0.96);
+    }
+
+    .btn-alva-outline {
+        background: #fffaf5;
+        color: #b44929;
+        border: 1px solid #ff9a76;
+    }
+
+    .btn-alva-outline:hover {
+        background: #fff1e6;
+        color: #9f3f22;
+    }
+}
+
 @layer base {
     * {
         @apply border-border;

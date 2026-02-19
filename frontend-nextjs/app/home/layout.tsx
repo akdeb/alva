@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
 import { SidebarNav } from "../components/Nav/SidebarNavItems";
-import { Gamepad2, Plus, PlusCircle, Settings } from "lucide-react";
+import { LayoutDashboard, ClipboardList, Settings } from "lucide-react";
 import { Metadata } from "next";
 import { getOpenGraphMetadata } from "@/lib/utils";
 import { MobileNav } from "../components/Nav/MobileNav";
@@ -14,28 +14,27 @@ export const revalidate = 60;
 export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
-    title: "Home",
-    ...getOpenGraphMetadata("Home"),
+    title: "Caregiver Portal",
+    ...getOpenGraphMetadata("Caregiver Portal"),
 };
 
 const sidebarNavItems: SidebarNavItem[] = [
     {
-        title: "Playground",
-            href: "/home",
-            icon: <Gamepad2 size={ICON_SIZE} />,
-        },
-        {
-            title: "Settings",
-            href: "/home/settings",
-            icon: <Settings size={ICON_SIZE} />,
-        },
-        {
-            title: "Create new",
-            href: "/home/create",
-            icon: <Plus size={ICON_SIZE+4} strokeWidth={2.5} />,
-            isPrimary: true,
-        },
-    ];
+        title: "Dashboard",
+        href: "/home",
+        icon: <LayoutDashboard size={ICON_SIZE} />,
+    },
+    {
+        title: "Care Plan",
+        href: "/home/care-plan",
+        icon: <ClipboardList size={ICON_SIZE} />,
+    },
+    {
+        title: "Care Settings",
+        href: "/home/settings",
+        icon: <Settings size={ICON_SIZE} />,
+    },
+];
 
 export default async function RootLayout({
     children,
@@ -58,21 +57,15 @@ export default async function RootLayout({
         redirect("/login");
     }
 
-    const mobileNavItems = [
-        sidebarNavItems[0], // Playground
-        sidebarNavItems[2], // Create
-        sidebarNavItems[1], // Settings
-    ];
-
     return (
-        <div className="flex flex-1 flex-col mx-auto w-full max-w-[1400px] gap-2 pb-2 md:flex-row">
-            <aside className="w-full md:w-[270px] sm:py-4 pt-2 md:overflow-y-auto md:fixed md:h-screen">
+        <div className="mx-auto flex w-full max-w-screen-xl flex-1 flex-col gap-2 pb-2 md:flex-row">
+            <aside className="w-full pt-2 sm:py-4 md:fixed md:h-screen md:w-[270px] md:overflow-y-auto">
                 <SidebarNav items={sidebarNavItems} />
             </aside>
-            <main className="flex-1 sm:py-4 px-4 flex justify-center md:ml-[270px]">
-                <div className="max-w-5xl w-full">{children}</div>
+            <main className="flex flex-1 justify-center px-4 sm:py-4 md:ml-[270px]">
+                <div className="w-full max-w-6xl">{children}</div>
             </main>
-            <MobileNav items={mobileNavItems} />
+            <MobileNav items={sidebarNavItems} />
         </div>
     );
 }

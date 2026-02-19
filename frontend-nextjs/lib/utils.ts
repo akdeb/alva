@@ -5,7 +5,7 @@ import { defaultPersonalityId } from "./data";
 export const getOpenGraphMetadata = (title: string) => {
     return {
         openGraph: {
-            title: `${title} | Elato AI`,
+            title: `${title} | Alva`,
         },
     };
 };
@@ -51,7 +51,7 @@ export const isDefaultPersonality = (personality: IPersonality) => {
 
 export const getBaseUrl = () => {
     return process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
-        ? "https://elatoai.com"
+        ? "https://alvaai.com"
         : "http://localhost:3000";
 };
 

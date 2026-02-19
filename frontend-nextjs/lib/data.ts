@@ -7,7 +7,7 @@ export const devkitPaymentLink = "https://buy.stripe.com/fZefZ12z82rh3cseV5";
 
 export const discordInviteLink = "https://discord.gg/KJWxDPBRUj";
 export const tiktokLink = "https://www.tiktok.com/@elatoai";
-export const githubPublicLink = "https://github.com/akdeb/ElatoAI";
+export const githubPublicLink = "https://github.com";
 export const businessDemoLink = "https://calendly.com/akadeb/elato-ai-demo";
 export const feedbackFormLink = "https://forms.gle/2QmukEG2FXNwBdee7";
 export const kickstarterLink = "https://www.kickstarter.com/projects/elatoai/elato-make-toys-talk-with-ai-voices";

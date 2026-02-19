@@ -17,7 +17,6 @@ import { createClient } from "@/utils/supabase/server";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 import Footer from "./components/Footer";
-import { fetchGithubStars } from "./actions";
 import { Metadata, Viewport } from "next";
 import NextTopLoader from "nextjs-toploader";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -310,8 +309,6 @@ export default async function RootLayout({
 }) {
     const supabase = createClient();
 
-    const { stars } = await fetchGithubStars("akdeb/ElatoAI");
-
     const {
         data: { user },
     } = await supabase.auth.getUser();
@@ -348,7 +345,7 @@ export default async function RootLayout({
                     disableTransitionOnChange
                 > */}
                 <main className="flex-grow mx-auto w-full flex flex-col">
-                    <Navbar user={dbUser ?? null} stars={stars} />
+                    <Navbar user={dbUser ?? null} />
                     {children}
                     <Footer />
                 </main>

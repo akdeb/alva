@@ -1,13 +1,22 @@
 import { createUser, doesUserExist, getUserById } from "@/db/users";
 import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
-import Playground from "../components/Playground/PlaygroundComponent";
-import { defaultPersonalityId, defaultToyId } from "@/lib/data";
-import { getAllPersonalities, getMyPersonalities } from "@/db/personalities";
+import { defaultPersonalityId } from "@/lib/data";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
+import { AlertTriangle, BellRing, CalendarClock, Clock3, MessageSquareText, PhoneCall, ShieldCheck } from "lucide-react";
 
-
-export const revalidate = 0; // disable cache for this route
+export const revalidate = 0;
 export const dynamic = "force-dynamic";
+
+const overviewStats = [
+    { label: "Conversations today", value: "8", icon: MessageSquareText, tone: "text-[#2f5f84]" },
+    { label: "Check-ins scheduled", value: "2", icon: CalendarClock, tone: "text-[#6d4a12]" },
+    { label: "Active alerts", value: "1", icon: AlertTriangle, tone: "text-[#9b4a1f]" },
+    { label: "Last companion activity", value: "12 min ago", icon: Clock3, tone: "text-[#2a6650]" },
+];
 
 export default async function Home() {
     const supabase = createClient();
@@ -20,33 +29,88 @@ export default async function Home() {
         redirect("/login");
     }
 
-    if (user) {
-        const userExists = await doesUserExist(supabase, user);
-        // await supabase.auth.signOut();
-        if (!userExists) {
-            // Create user if they don't exist
-            await createUser(supabase, user, {
-                personality_id:
-                    user?.user_metadata?.personality_id ?? defaultPersonalityId,
-                language_code: "en-US",
-            });
-            redirect("/onboard");
-        }
+    const userExists = await doesUserExist(supabase, user);
+
+    if (!userExists) {
+        await createUser(supabase, user, {
+            personality_id: user.user_metadata?.personality_id ?? defaultPersonalityId,
+            language_code: "en-US",
+        });
+        redirect("/onboard");
     }
 
-    const dbUser = await getUserById(supabase, user!.id);
-    const allPersonalities = await getAllPersonalities(supabase);
-    const myPersonalities = await getMyPersonalities(supabase, user?.id ?? "");
+    const dbUser = await getUserById(supabase, user.id);
+
+    if (!dbUser) {
+        redirect("/login");
+    }
 
     return (
-        <div>
-            {dbUser && (
-                <Playground
-                    allPersonalities={allPersonalities}
-                    myPersonalities={myPersonalities}
-                    currentUser={dbUser}
-                />
-            )}
+        <div className="space-y-6 pb-10">
+            <section className="relative overflow-hidden rounded-3xl border border-[#ffdccc] bg-gradient-to-br from-[#fff3e8] via-[#fff8fb] to-[#ecfff4] p-6 sm:p-8">
+                <div className="absolute -right-10 top-0 h-40 w-40 rounded-full bg-[#ff9868]/25 blur-3xl" />
+                <div className="absolute -left-12 bottom-0 h-44 w-44 rounded-full bg-[#45ca9a]/20 blur-3xl" />
+                <Badge className="mb-3 w-fit border-transparent bg-[#ff6f61] text-white">Dashboard</Badge>
+                <h1 className="font-[var(--font-lora)] text-3xl text-[#243640] sm:text-4xl">Welcome back, {dbUser.supervisor_name || "Caregiver"}</h1>
+                <p className="mt-2 max-w-2xl text-[#42535d]">
+                    This dashboard focuses on live status and actions. Care configuration lives in the Care Plan tab.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                    <Button asChild className="btn-alva-primary">
+                        <Link href="/home/care-plan">Open Care Plan</Link>
+                    </Button>
+                    <Button asChild variant="outline" className="btn-alva-outline">
+                        <Link href="/home/settings">Care Settings</Link>
+                    </Button>
+                </div>
+            </section>
+
+            <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                {overviewStats.map((item) => (
+                    <Card key={item.label} className="border-[#ffe2d4] bg-[#fffdf9]">
+                        <CardHeader className="pb-2">
+                            <CardDescription className="text-[#4a5f6b]">{item.label}</CardDescription>
+                            <CardTitle className={`flex items-center gap-2 text-2xl ${item.tone}`}>
+                                <item.icon className="h-5 w-5" />
+                                {item.value}
+                            </CardTitle>
+                        </CardHeader>
+                    </Card>
+                ))}
+            </section>
+
+            <section className="grid gap-4 lg:grid-cols-2">
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2 text-2xl"><BellRing className="h-5 w-5 text-[#b85d2a]" /> Safeguarding queue</CardTitle>
+                        <CardDescription>Recent events that may require immediate caregiver follow-up.</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                        <div className="rounded-xl border border-[#ffd8c9] bg-[#fff2e9] p-4 text-sm text-[#724725]">
+                            <p className="font-semibold">High priority · 10:14 AM</p>
+                            <p className="mt-1">Repeated confusion signals and distress language detected for ~6 minutes.</p>
+                        </div>
+                        <div className="rounded-xl border border-[#d9f2e7] bg-[#effcf6] p-4 text-sm text-[#246048]">
+                            <p className="font-semibold">Info · 9:20 AM</p>
+                            <p className="mt-1">Morning conversation ended in stable mood after orientation prompts.</p>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2 text-2xl"><ShieldCheck className="h-5 w-5 text-[#1f6c6d]" /> Quick actions</CardTitle>
+                        <CardDescription>Fast actions for today without entering full Care Plan configuration.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="flex flex-wrap gap-3">
+                            <Button asChild className="btn-alva-primary"><Link href="/home/care-plan">Adjust care rules</Link></Button>
+                            <Button asChild variant="outline" className="btn-alva-outline"><Link href="/home/create">Add companion feature</Link></Button>
+                            <Button asChild variant="outline" className="btn-alva-outline"><Link href="/home/settings"><PhoneCall className="mr-2 h-4 w-4" />Update contacts</Link></Button>
+                        </div>
+                    </CardContent>
+                </Card>
+            </section>
         </div>
     );
 }
