@@ -118,7 +118,7 @@ export function NavbarDropdownMenu({ user }: NavbarMenuButtonProps) {
 
                 <DropdownMenuItem>
                     <Link
-                        href={feedbackFormLink}
+                        href={"mailto:miguel@studiomorfar.com"}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex w-full flex-row items-center gap-2"

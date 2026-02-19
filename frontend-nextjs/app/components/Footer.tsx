@@ -20,7 +20,7 @@ export default function Footer() {
             } border-[#ffd8c9] bg-white/80 flex flex-col sm:flex-row items-center sm:justify-center border-t-[1px] mx-auto text-center text-xs sm:gap-8 sm:py-2 py-3`}
         >
             <div className="flex flex-row items-center gap-8">
-                <a href={feedbackFormLink} target="_blank" rel="noreferrer">
+                <a href={"mailto:miguel@studiomorfar.com"} target="_blank" rel="noreferrer">
                     <Button
                         variant="link"
                         size="sm"

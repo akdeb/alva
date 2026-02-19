@@ -5,6 +5,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import LeftNavbarButtons from "./LeftNavbarButtons";
+import { ArrowRight } from "lucide-react";
 
 export function Navbar({
     user,
@@ -40,8 +41,8 @@ export function Navbar({
         >
             <nav className="mx-auto flex w-full max-w-screen-xl items-center justify-between px-4">
                 <LeftNavbarButtons user={user} />
-                <Button asChild className="btn-alva-primary rounded-full px-5">
-                    <Link href={portalHref}>Caregiver Portal</Link>
+                <Button asChild size="lg" variant="primary">
+                    <Link href={portalHref}>Caregiver Portal <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
             </nav>
         </div>

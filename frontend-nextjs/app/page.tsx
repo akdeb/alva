@@ -62,13 +62,13 @@ export default function LandingPage() {
                                 Alva helps create steady, familiar conversation at home while giving caregivers practical tools to personalize care and respond earlier.
                             </p>
                             <div className="flex flex-col gap-3 sm:flex-row">
-                                <Button asChild size="lg" className="btn-alva-primary">
+                                <Button asChild size="lg" variant="primary">
                                     <Link href="/home">
                                         Open Caregiver Portal
                                         <ArrowRight className="ml-2 h-4 w-4" />
                                     </Link>
                                 </Button>
-                                <Button asChild size="lg" variant="outline" className="btn-alva-outline">
+                                <Button asChild size="lg" variant="outline">
                                     <Link href={businessDemoLink} target="_blank" rel="noopener noreferrer">Talk to our team</Link>
                                 </Button>
                             </div>
@@ -119,7 +119,7 @@ export default function LandingPage() {
                 <section className="border-y border-[#ffd9c7] bg-[#ff7d66] py-14 text-white">
                     <div className="container mx-auto max-w-6xl px-4 md:px-6">
                         <p className="mb-3 text-sm uppercase tracking-[0.15em] text-[#fff4d9]">Care Path</p>
-                        <h2 className="mb-10 font-[var(--font-inter-tight)] text-3xl md:text-4xl">From setup to everyday support</h2>
+                        <h2 className="mb-10 font-[var(--font-inter-tight)] text-3xl font-bold text-white md:text-4xl">From setup to everyday support</h2>
                         <div className="grid gap-4 md:grid-cols-3">
                             {howItWorks.map((item) => (
                                 <article key={item.title} className="rounded-2xl border border-white/30 bg-white/15 p-6 backdrop-blur-sm">

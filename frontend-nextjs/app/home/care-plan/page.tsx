@@ -105,8 +105,8 @@ export default async function CarePlanPage() {
                         </div>
 
                         <div className="flex flex-wrap gap-3 pt-1">
-                            <Button className="btn-alva-primary">Save Context</Button>
-                            <Button variant="outline" className="btn-alva-outline">Start Guided Onboarding</Button>
+                            <Button variant="primary">Save Context</Button>
+                            <Button variant="outline">Start Guided Onboarding</Button>
                         </div>
                     </CardContent>
                 </Card>
@@ -160,7 +160,7 @@ export default async function CarePlanPage() {
                                 <p className="text-sm text-[#52636d]">Focuses on orientation, breathing, and reassurance cues.</p>
                             </div>
                         </label>
-                        <Button className="btn-alva-primary">Update Tone</Button>
+                        <Button variant="primary">Update Tone</Button>
                     </CardContent>
                 </Card>
 
@@ -183,7 +183,7 @@ export default async function CarePlanPage() {
                         <div className="rounded-xl border border-[#ffd8cc] bg-[#fff0ec] p-3 text-sm text-[#6f413a]">
                             Alerts include summary context only and should be handled with strict confidentiality.
                         </div>
-                        <Button className="btn-alva-primary">Save Notification Rules</Button>
+                        <Button variant="primary">Save Notification Rules</Button>
                     </CardContent>
                 </Card>
             </section>

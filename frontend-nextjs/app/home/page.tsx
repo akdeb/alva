@@ -50,19 +50,22 @@ export default async function Home() {
             <section className="relative overflow-hidden rounded-3xl border border-[#ffdccc] bg-[#fff4ea] p-6 sm:p-8">
                 <div className="absolute -right-10 top-0 h-40 w-40 rounded-full bg-[#ffd7c1]" />
                 <div className="absolute -left-12 bottom-0 h-44 w-44 rounded-full bg-[#d9f5e8]" />
-                <Badge className="mb-3 w-fit border-transparent bg-[#ff6f61] text-white">Dashboard</Badge>
+<div className="relative z-10">
+<Badge className="mb-3 w-fit border-transparent bg-[#ff6f61] text-white">Dashboard</Badge>
                 <h1 className="font-[var(--font-inter-tight)] text-3xl text-[#243640] sm:text-4xl">Welcome back, {dbUser.supervisor_name || "Caregiver"}</h1>
                 <p className="mt-2 max-w-2xl text-[#42535d]">
                     This dashboard focuses on live status and actions. Care configuration lives in the Care Plan tab.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
-                    <Button asChild className="btn-alva-primary">
+                    <Button asChild variant="primary">
                         <Link href="/home/care-plan">Open Care Plan</Link>
                     </Button>
-                    <Button asChild variant="outline" className="btn-alva-outline">
+                    <Button asChild variant="outline">
                         <Link href="/home/settings">Care Settings</Link>
                     </Button>
                 </div>
+</div>
+                
             </section>
 
             <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -104,9 +107,9 @@ export default async function Home() {
                     </CardHeader>
                     <CardContent>
                         <div className="flex flex-wrap gap-3">
-                            <Button asChild className="btn-alva-primary"><Link href="/home/care-plan">Adjust care rules</Link></Button>
-                            <Button asChild variant="outline" className="btn-alva-outline"><Link href="/home/create">Add companion feature</Link></Button>
-                            <Button asChild variant="outline" className="btn-alva-outline"><Link href="/home/settings"><PhoneCall className="mr-2 h-4 w-4" />Update contacts</Link></Button>
+                            <Button asChild variant="primary"><Link href="/home/care-plan">Adjust care rules</Link></Button>
+                            <Button asChild variant="outline"><Link href="/home/create">Add companion feature</Link></Button>
+                            <Button asChild variant="outline"><Link href="/home/settings"><PhoneCall className="mr-2 h-4 w-4" />Update contacts</Link></Button>
                         </div>
                     </CardContent>
                 </Card>
