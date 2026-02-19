@@ -53,7 +53,7 @@ export default function LandingPage() {
                 <section className="relative overflow-hidden border-b border-[#ffe1d4] bg-[#fff3e8]">
                     <div className="absolute -left-24 top-24 h-64 w-64 rounded-full bg-[#ffd8c0]" />
                     <div className="absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#d8f4e8]" />
-                    <div className="container mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-2 md:px-6 md:py-20">
+                    <div className="container relative z-10 mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-2 md:px-6 md:py-20">
                         <div className="space-y-6">
                             <h1 className="font-[var(--font-inter-tight)] text-4xl leading-tight text-[#1e2f39] md:text-6xl">
                                 Alva, a voice companion for people living with dementia.

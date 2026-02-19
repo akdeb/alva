@@ -40,11 +40,6 @@ export default function Footer() {
                 <span>·</span>
                 <span>Copenhagen</span>
             </div>
-            <div className={`${isHome && isMobile ? "hidden" : "flex"} flex-row items-center gap-4`}>
-                <Link href="/" className="text-xs text-[#8d5b4a] hover:text-[#ff6f61]">Landing</Link>
-                <Link href="/home" className="text-xs text-[#8d5b4a] hover:text-[#ff6f61]">Dashboard</Link>
-                <Link href="/home/care-plan" className="text-xs text-[#8d5b4a] hover:text-[#ff6f61]">Care Plan</Link>
-            </div>
         </footer>
     );
 }
