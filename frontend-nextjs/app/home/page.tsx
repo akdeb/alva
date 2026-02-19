@@ -47,11 +47,11 @@ export default async function Home() {
 
     return (
         <div className="space-y-6 pb-10">
-            <section className="relative overflow-hidden rounded-3xl border border-[#ffdccc] bg-gradient-to-br from-[#fff3e8] via-[#fff8fb] to-[#ecfff4] p-6 sm:p-8">
-                <div className="absolute -right-10 top-0 h-40 w-40 rounded-full bg-[#ff9868]/25 blur-3xl" />
-                <div className="absolute -left-12 bottom-0 h-44 w-44 rounded-full bg-[#45ca9a]/20 blur-3xl" />
+            <section className="relative overflow-hidden rounded-3xl border border-[#ffdccc] bg-[#fff4ea] p-6 sm:p-8">
+                <div className="absolute -right-10 top-0 h-40 w-40 rounded-full bg-[#ffd7c1]" />
+                <div className="absolute -left-12 bottom-0 h-44 w-44 rounded-full bg-[#d9f5e8]" />
                 <Badge className="mb-3 w-fit border-transparent bg-[#ff6f61] text-white">Dashboard</Badge>
-                <h1 className="font-[var(--font-lora)] text-3xl text-[#243640] sm:text-4xl">Welcome back, {dbUser.supervisor_name || "Caregiver"}</h1>
+                <h1 className="font-[var(--font-inter-tight)] text-3xl text-[#243640] sm:text-4xl">Welcome back, {dbUser.supervisor_name || "Caregiver"}</h1>
                 <p className="mt-2 max-w-2xl text-[#42535d]">
                     This dashboard focuses on live status and actions. Care configuration lives in the Care Plan tab.
                 </p>

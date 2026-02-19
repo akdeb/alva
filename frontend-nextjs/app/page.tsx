@@ -48,14 +48,14 @@ const howItWorks = [
 
 export default function LandingPage() {
     return (
-        <div className="min-h-screen bg-gradient-to-b from-[#fff8f1] via-[#fffdf7] to-[#f2fff8] text-[#20303a]">
+        <div className="min-h-screen bg-[#fff9f3] text-[#20303a]">
             <main>
-                <section className="relative overflow-hidden border-b border-[#ffe1d4] bg-gradient-to-br from-[#fff4e8] via-[#fff5fb] to-[#e9fff3]">
-                    <div className="absolute -left-24 top-24 h-64 w-64 rounded-full bg-[#ff8b5e]/30 blur-3xl" />
-                    <div className="absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#58d4a3]/25 blur-3xl" />
+                <section className="relative overflow-hidden border-b border-[#ffe1d4] bg-[#fff3e8]">
+                    <div className="absolute -left-24 top-24 h-64 w-64 rounded-full bg-[#ffd8c0]" />
+                    <div className="absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#d8f4e8]" />
                     <div className="container mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-2 md:px-6 md:py-20">
                         <div className="space-y-6">
-                            <h1 className="font-[var(--font-lora)] text-4xl leading-tight text-[#1e2f39] md:text-6xl">
+                            <h1 className="font-[var(--font-inter-tight)] text-4xl leading-tight text-[#1e2f39] md:text-6xl">
                                 Alva, a voice companion for people living with dementia.
                             </h1>
                             <p className="max-w-xl text-lg text-[#384a53]">
@@ -116,10 +116,10 @@ export default function LandingPage() {
                     </div>
                 </section>
 
-                <section className="border-y border-[#ffd9c7] bg-gradient-to-r from-[#ff7d66] via-[#ff9d4d] to-[#35c8a1] py-14 text-white">
+                <section className="border-y border-[#ffd9c7] bg-[#ff7d66] py-14 text-white">
                     <div className="container mx-auto max-w-6xl px-4 md:px-6">
                         <p className="mb-3 text-sm uppercase tracking-[0.15em] text-[#fff4d9]">Care Path</p>
-                        <h2 className="mb-10 font-[var(--font-lora)] text-3xl md:text-4xl">From setup to everyday support</h2>
+                        <h2 className="mb-10 font-[var(--font-inter-tight)] text-3xl md:text-4xl">From setup to everyday support</h2>
                         <div className="grid gap-4 md:grid-cols-3">
                             {howItWorks.map((item) => (
                                 <article key={item.title} className="rounded-2xl border border-white/30 bg-white/15 p-6 backdrop-blur-sm">

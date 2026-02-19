@@ -39,7 +39,7 @@ export default async function CarePlanPage() {
 
     return (
         <div className="space-y-6 pb-10">
-            <Card className="border-[#ffdccc] bg-gradient-to-r from-[#fff2e7] via-[#fff6fb] to-[#edfff5]">
+            <Card className="border-[#ffdccc] bg-[#fff4ea]">
                 <CardHeader>
                     <CardTitle className="text-2xl text-[#243640]">Care Plan Workspace</CardTitle>
                     <CardDescription>

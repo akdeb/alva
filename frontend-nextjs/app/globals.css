@@ -72,14 +72,15 @@
 
 @layer components {
     .btn-alva-primary {
-        background: linear-gradient(135deg, #ff6f61 0%, #ff8a45 50%, #ffb347 100%);
+        background: #ff6f61;
         color: #fff;
-        border: 1px solid transparent;
-        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.25);
+        border: 1px solid #ff6f61;
+        box-shadow: 0 6px 14px rgba(255, 111, 97, 0.18);
     }
 
     .btn-alva-primary:hover {
-        filter: brightness(0.96);
+        background: #ef6153;
+        border-color: #ef6153;
     }
 
     .btn-alva-outline {
