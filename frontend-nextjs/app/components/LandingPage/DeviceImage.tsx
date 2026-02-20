@@ -19,7 +19,7 @@ export const DeviceImage = () => {
             >
                 <Image
                     src="/products/box43.png"
-                    alt="Elato Toy"
+                    alt="Morfar Toy"
                     fill
                     className="object-contain object-center mr-6 rounded-3xl"
                 />
