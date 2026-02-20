@@ -32,7 +32,7 @@ export default function Footer() {
                     </Button>
                 </a>
                 <Label className="font-normal text-xs text-[#865042]">
-                    Alva © {new Date().getFullYear()}
+                    Morfar © {new Date().getFullYear()}
                 </Label>
             </div>
             <div className={`${isHome && isMobile ? "hidden" : "flex"} flex-row items-center gap-2 text-xs text-[#865042]`}>

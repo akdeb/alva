@@ -71,25 +71,25 @@
 }
 
 @layer components {
-    .btn-alva-primary {
+    .btn-morfar-primary {
         background: #ff6f61;
         color: #fff;
         border: 1px solid #ff6f61;
         border-radius: 9999px;
     }
 
-    .btn-alva-primary:hover {
+    .btn-morfar-primary:hover {
         background: #ef6153;
         border-color: #ef6153;
     }
 
-    .btn-alva-outline {
+    .btn-morfar-outline {
         background: #fffaf5;
         color: #b44929;
         border: 1px solid #ff9a76;
     }
 
-    .btn-alva-outline:hover {
+    .btn-morfar-outline:hover {
         background: #fff1e6;
         color: #9f3f22;
     }

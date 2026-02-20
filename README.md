@@ -1,4 +1,4 @@
-# Alva 
+# Morfar 
 AI assistant for people living with dementia
 
 ## Features
