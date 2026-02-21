@@ -1,6 +1,5 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { defaultPersonalityId } from "./data";
 
 export const getOpenGraphMetadata = (title: string) => {
     return {
@@ -44,10 +43,6 @@ export function removeEmojis(text: string): string {
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
-
-export const isDefaultPersonality = (personality: IPersonality) => {
-    return personality.personality_id === defaultPersonalityId;
-};
 
 export const getBaseUrl = () => {
     return process.env.NEXT_PUBLIC_VERCEL_ENV === "production"

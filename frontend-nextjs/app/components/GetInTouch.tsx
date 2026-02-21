@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { SendHorizonal } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { businessDemoLink } from "@/lib/data";
 
 interface PreorderButtonProps {
     size: "sm" | "lg";
@@ -18,7 +17,7 @@ const GetInTouchButton = ({
     iconOnMobile,
 }: PreorderButtonProps) => {
     return (
-        <Link href={businessDemoLink} passHref>
+        <Link href={"mailto:miguel@studiomorfar.com"} target="_blank" rel="noopener noreferrer" passHref>
             <Button
                 className={cn(
                     "flex flex-row items-center gap-4 font-medium text-base bg-stone-800 leading-8 rounded-full",

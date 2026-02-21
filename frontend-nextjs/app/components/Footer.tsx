@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { feedbackFormLink } from "@/lib/data";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export default function Footer() {

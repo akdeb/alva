@@ -16,10 +16,6 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-    businessDemoLink,
-    feedbackFormLink,
-} from "@/lib/data";
 import PremiumBadge from "../PremiumBadge";
 import { useEffect, useState } from "react";
 import { isPremiumUser } from "@/app/actions";
@@ -111,7 +107,7 @@ export function NavbarDropdownMenu({ user }: NavbarMenuButtonProps) {
                 <DropdownMenuSeparator />
 
                 <DropdownMenuItem>
-                    <Link href={businessDemoLink} className="flex w-full flex-row gap-2">
+                    <Link href={"mailto:miguel@studiomorfar.com"} className="flex w-full flex-row gap-2">
                         <span>Book a Demo</span>
                     </Link>
                 </DropdownMenuItem>

@@ -1,27 +1,3 @@
-export const defaultToyId: string = "56224f7f-250d-4351-84ee-e4a13b881c7b";
-export const defaultPersonalityId: string =
-    "a1c073e6-653d-40cf-acc1-891331689409";
-
-export const paymentLink = "https://buy.stripe.com/bIY0033Dc7LB28o9AJ";
-export const devkitPaymentLink = "https://buy.stripe.com/fZefZ12z82rh3cseV5";
-
-export const discordInviteLink = "https://discord.gg/KJWxDPBRUj";
-export const tiktokLink = "https://www.tiktok.com/@elatoai";
-export const githubPublicLink = "https://github.com";
-export const businessDemoLink = "https://calendly.com/akadeb/elato-ai-demo";
-export const feedbackFormLink = "https://forms.gle/2QmukEG2FXNwBdee7";
-export const kickstarterLink = "https://www.kickstarter.com/projects/elatoai/elato-make-toys-talk-with-ai-voices";
-
-export const r2Url = "https://pub-cd736d767add4fecafea55c239c28497.r2.dev";
-export const r2UrlAudio = "https://pub-5fab8e2596c544cd8dc3e20812be2168.r2.dev";
-
-export const videoSrc = `${r2Url}/IMG_1673.mov`;
-export const videoSrc2 = `${r2Url}/IMG_1675.mov`;
-export const videoSrc3 = `${r2Url}/IMG_1676.mov`;
-export const videoSrc4 = `${r2Url}/IMG_1677.mov`;
-
-export const voiceSampleUrl =
-    "https://xygbupeczfhwamhqnucy.supabase.co/storage/v1/object/public/voices/";
 
 export const userFormPersonaLabel =
     "Briefly describe yourself and your interests, personality, and learning style";

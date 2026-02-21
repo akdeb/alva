@@ -1,7 +1,6 @@
 import { createUser, doesUserExist } from "@/db/users";
 import { createClient } from "@/utils/supabase/server";
 import { NextResponse } from "next/server";
-import { defaultPersonalityId, defaultToyId } from "@/lib/data";
 import { getBaseUrl } from "@/lib/utils";
 
 export async function GET(request: Request) {
@@ -33,8 +32,7 @@ export async function GET(request: Request) {
                 await createUser(supabase, user, {
                     language_code: "en-US",
                     personality_id:
-                        user?.user_metadata?.personality_id ??
-                        defaultPersonalityId,
+                        user?.user_metadata?.personality_id,
                 });
 
                 return NextResponse.redirect(`${origin}/onboard`);

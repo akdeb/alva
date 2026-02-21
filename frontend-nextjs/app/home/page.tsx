@@ -1,7 +1,6 @@
 import { createUser, doesUserExist, getUserById } from "@/db/users";
 import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
-import { defaultPersonalityId } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,7 +32,7 @@ export default async function Home() {
 
     if (!userExists) {
         await createUser(supabase, user, {
-            personality_id: user.user_metadata?.personality_id ?? defaultPersonalityId,
+            personality_id: user.user_metadata?.personality_id ?? "",
             language_code: "en-US",
         });
         redirect("/onboard");

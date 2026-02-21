@@ -3,7 +3,6 @@
 import { FaGoogle } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/utils/supabase/client";
-import { defaultPersonalityId, defaultToyId } from "@/lib/data";
 
 interface GoogleLoginButtonProps {
     toy_id?: string;
@@ -40,8 +39,8 @@ export default function GoogleLoginButton({
             variant="default"
             onClick={() =>
                 loginWithGoogle(
-                    toy_id ?? defaultToyId,
-                    personality_id ?? defaultPersonalityId
+                    toy_id ?? "",
+                    personality_id ?? ""
                 )
             }
         >

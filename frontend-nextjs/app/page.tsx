@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, BellRing, Brain, HeartHandshake, Mic, ShieldAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { businessDemoLink } from "@/lib/data";
 
 const coreBenefits = [
     {
@@ -69,7 +68,7 @@ export default function LandingPage() {
                                     </Link>
                                 </Button>
                                 <Button asChild size="lg" variant="outline">
-                                    <Link href={businessDemoLink} target="_blank" rel="noopener noreferrer">Talk to our team</Link>
+                                    <Link href={"mailto:miguel@studiomorfar.com"} target="_blank" rel="noopener noreferrer">Talk to our team</Link>
                                 </Button>
                             </div>
                         </div>

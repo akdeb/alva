@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { toast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
-import { emotionOptions, geminiVoices, grokVoices, openaiVoices, r2UrlAudio } from "@/lib/data";
+import { emotionOptions, geminiVoices, grokVoices, openaiVoices } from "@/lib/data";
 import EmojiComponent from "./EmojiComponent";
 import { PitchFactors } from "@/lib/utils";
 import { Slider } from "@/components/ui/slider";
@@ -223,7 +223,7 @@ const SettingsDashboard: React.FC<SettingsDashboardProps> = ({
         audioElement.currentTime = 0;
       }
 
-      const audioSampleUrl = `${r2UrlAudio}/${id}.wav`;
+      const audioSampleUrl = `${id}.wav`;
       setPreviewingVoice(id);
 
       // Create and play audio element

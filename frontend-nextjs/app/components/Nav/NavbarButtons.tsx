@@ -4,7 +4,6 @@ import { NavbarDropdownMenu } from "./NavbarDropdownMenu";
 import PremiumBadge from "../PremiumBadge";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { CalendarCheck } from "lucide-react";
-import { businessDemoLink } from "@/lib/data";
 
 interface NavbarButtonsProps {
     user: IUser | null;
@@ -29,7 +28,7 @@ const NavbarButtons: React.FC<NavbarButtonsProps> = ({
                 </div>
             )}
             {!isHome && !isMobile && (
-                <Link href={businessDemoLink} passHref tabIndex={-1}>
+                <Link href={"mailto:miguel@studiomorfar.com"} passHref tabIndex={-1}>
                     <Button
                         size="sm"
                         variant="secondary"

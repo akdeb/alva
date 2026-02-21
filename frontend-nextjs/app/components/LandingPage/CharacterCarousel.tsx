@@ -6,7 +6,6 @@ import { Pause, Play } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { getPersonalityImageSrc } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
-import { voiceSampleUrl } from "@/lib/data";
 
 interface LandingPagePersonality {
     key: string;
@@ -88,7 +87,7 @@ const CharacterCarouselCard = ({ personality }: CharacterCarouselCardProps) => {
             audioElement.pause();
         }
 
-        const audio = new Audio(`${voiceSampleUrl}${personality.key}.wav`);
+        const audio = new Audio(`${personality.key}.wav`);
         audio.onended = () => {
             setPlaying(null);
             setAudioElement(null);

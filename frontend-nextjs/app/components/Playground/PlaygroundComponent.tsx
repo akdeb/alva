@@ -9,7 +9,6 @@ import PersonalityFilters from "./PersonalityFilters";
 import { TranscriptProvider } from "../Realtime/contexts/TranscriptContext";
 import { EventProvider } from "../Realtime/contexts/EventContext";
 import App from "../Realtime/App";
-import { defaultPersonalityId } from "@/lib/data";
 import UserPersonalities from "./UserPersonalities";
 
 interface PlaygroundProps {
@@ -28,7 +27,7 @@ const Playground: React.FC<PlaygroundProps> = ({
     const supabase = createClient();
 
     const [personalityIdState, setPersonalityIdState] = useState<string>(
-        currentUser.personality!.personality_id ?? defaultPersonalityId // Initial value from props
+        currentUser.personality!.personality_id ?? "" // Initial value from props
     );
 
     const [selectedFilters, setSelectedFilters] = useState<PersonalityFilter[]>(
